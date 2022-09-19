@@ -126,7 +126,7 @@ class MyPromise {
     return promise2
   }
   // catch 实现
-  catch(errorCallback) {
+  catch(errorCallback) { 
     return this.then(null, errorCallback)
   }
 }
@@ -179,8 +179,14 @@ var test = function() {
   }, (reason) => {
     console.log(reason)
   })
+  // 无失败走 catch
   .catch((e) => {
     console.log(e)
+    return 'catch'
+  })
+  // catch 实际是then
+  .then((val) => {
+    console.log(val)
   })
 }
 
